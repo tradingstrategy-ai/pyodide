@@ -1,0 +1,28 @@
+#
+# Hacked together PyArrow for Pyodide
+# See: https://github.com/tradingstrategy-ai/pyarrow-wasm
+#
+package:
+  name: pyarrow
+  version: 7.0.0
+source:
+  url: https://github.com/tradingstrategy-ai/pyarrow-wasm/archive/refs/tags/7.0.0.tar.gz
+  sha256: 55dc094a1630508b1c37f8337c8edf80f0472169863d6c6521a719182a415d3b
+  extract_dir: pyarrow-wasm-7.0.0
+test:
+  imports:
+    - pyarrow
+
+requirements:
+    run:
+      - numpy
+
+build:
+    script: |
+        mkdir -p build/pyodide/pyarrow 
+        echo > build/pyodide/pyarrow/__init__.py
+about:
+  home: http://github.com/joemarshall/arrow-wasm-cpp
+#  PyPI: 
+  summary: pyarrow compiled for webassembly
+  license: MIT
